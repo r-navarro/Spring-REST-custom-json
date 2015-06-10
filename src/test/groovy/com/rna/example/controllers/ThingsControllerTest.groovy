@@ -19,11 +19,19 @@ class ThingsControllerTest extends Specification {
     def "My json is custom made by custom serializer"(){
         when:
         def response = mockMvc.perform(MockMvcRequestBuilders.get("/things/23")).andReturn().response
-        println response.contentAsString
         def content = new JsonSlurper().parseText(response.contentAsString)
 
         then:
         content.copyleft == "CopyLeft"
         content.name == "name23".reverse()
+    }
+
+    def "My json is custom made using groovy trait"(){
+        when:
+        def response = mockMvc.perform(MockMvcRequestBuilders.get("/things/other/23")).andReturn().response
+        def content = new JsonSlurper().parseText(response.contentAsString)
+
+        then:
+        content.copyleft == "CopyLeft"
     }
 }
