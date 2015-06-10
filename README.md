@@ -8,6 +8,7 @@ How to add or modify fields to JSON value.
 <ul>
   <li>Rest controller with @RestController</li>
   <li>Custom made json converter for poGo</li>
+  <li>Use groovy trait to add attribute to a poGo</li>
   <li>MockMvc usage with Spock Framework to check if the JSON is good</li>
 </ul>
 
